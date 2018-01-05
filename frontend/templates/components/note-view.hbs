@@ -1,0 +1,22 @@
+<div>
+  <h2>{{selectedNote.nombre}}</h2>
+  <div>{{selectedNote.contenido}}</div>
+  <div id="share">
+    <h3>{{i18n 'Share note'}}</h3>
+    {{#each selectedNote.share}}
+      <p>{{autor}} shared</p>
+      <p>
+        {{contenido}}
+      </p>
+      <hr>
+    {{/each}}
+  </div>
+  {{#if isLogged}}
+    <h2>{{i18n 'Share a note'}}</h2>
+    <div>
+      <textarea rows="4" cols="20" id="sharecontent"></textarea>{{shareErrors.content}}
+    </div>
+    <button id="savesharebutton">{{i18n 'Share with...'}}</button>
+  {{/if}}
+
+</div>

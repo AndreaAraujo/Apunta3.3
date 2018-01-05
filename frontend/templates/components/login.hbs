@@ -1,0 +1,47 @@
+<span>
+{{#if isLogged}}
+  {{i18n 'Your are logged. Logout first'}}
+{{else}}
+
+<div class="container" id="caja" >
+
+
+    <center>
+      <p><label for = "logUsuario">{{i18n 'Username'}}:</label>
+      <input type="text" name="logUsuario" id ="nombreLogin"></p>
+      <p><label for = "conUsuario">{{i18n 'Password'}}:</label>
+      <input type="password" name="conUsuario" id="password"></p>
+      <a href="#login" id='registerlink'>{{i18n 'Register Here!'}}</a>
+      <button type="submit" class="btn btn-default" id="loginbutton">{{i18n 'Login' }}</button>
+    </center>
+
+</div>
+
+
+
+  {{#if registerMode}}
+
+  <div class="container" id="caja">
+    <center>
+        <label for = "logUsuario">{{i18n 'Username' }}:</label>
+        <input type="text" name="logUsuario" id="registroNombre">
+        <p>{{#i18n}}{{registerErrors.login}}{{/i18n}}</p>
+
+        <label for = "emailUsuario">{{i18n 'Email'}}:</label>
+        <input type="text" name="emailUsuario" id="registroEmail">
+        <p>{{#i18n}}{{registerErrors.email}}{{/i18n}}</p>
+
+
+        <label for = "conUsuario">{{i18n 'Password' }}:</label>
+        <input type="password" name="conUsuario" id="registroPassword" maxlength="8">
+        <p>{{#i18n}}{{registerErrors.password}}{{/i18n}}</p>
+
+        <input type="submit" name="enviar" class="btn btn-default"  id="registerbutton" value = "{{i18n 'Create user'}}">
+    </center>
+
+  </div>
+
+  {{/if}}
+
+{{/if}}
+</span>

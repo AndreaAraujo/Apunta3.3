@@ -1,0 +1,12 @@
+<div class="col-md-4" key="{{IdNota}}">
+  {{#if_eq user.currentUser autor}}
+  <h2 href="#view-note?id={{IdNota}}">{{nombre}}</h2>
+  <p href="#view-note?id={{IdNota}}">{{contenido}}</p>
+  <p>{{autor}} ({{user.currentUser}})</p>
+  <p>
+      <button class="remove-button" item="{{IdNota}}"><span class="glyphicon glyphicon-trash" id="btnEliminar"></span>{{i18n 'Delete'}}</button>
+      <button class="edit-button" item="{{IdNota}}"><span class="glyphicon glyphicon-pencil" id="btnEditar"></span>{{i18n 'Edit'}}</button>
+        <a href="#share-note?id={{IdNota}}">{{i18n 'Share note'}}</a>
+  </p>
+  {{/if_eq}}
+</div>

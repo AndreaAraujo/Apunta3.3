@@ -1,0 +1,17 @@
+<div>
+  <div class="container">
+
+    <div class ="form-group">
+      <label for = "nombre" id="labelNombre">{{ i18n 'Name' }}:</label>
+      <input type="text"  class ="form-control" id="nombre" value="{{selectedNote.nombre}}">
+    </div>
+      <p>{{#i18n}}{{errors.nombre}}{{/i18n}}</p>
+  <div class ="form-group">
+      <label  id="contenidoNota">{{i18n 'Content'}}:</label>
+      <textarea id="contenido" class ="form-control" rows="10" cols="80">{{selectedNote.contenido}}</textarea>
+      <p>{{#i18n}}{{errors.contenido}}{{/i18n}}</p>
+
+  <button type="button" class="btn btn-default btn-lg" id="savebutton"><span class="glyphicon glyphicon-floppy-disk"> {{i18n 'Save'}}</button>
+  </div>
+</div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+{{#if user.isLogged}}
+  <h1>{{i18n 'My notes'}}</h1>
+
+
+    <a href='#add-note'>  <button type="button" class="btn btn-default btn-lg" ><span class="glyphicon glyphicon-plus" id="btnCrearNota"></span>{{i18n 'Add note'}}</button></a>
+  <a href='#shared-note'>  <button type="button" class="btn btn-default btn-lg" >{{i18n 'Shared notes with me'}}</button></a>
+
+  {{#if notes.length}}
+
+  <div class="row">
+
+      <div>
+      {{#each notes}}
+        <p fronty-component="NoteRowComponent" key="{{IdNota}}" model="notes[{{@index}}]" id="item-{{IdNota}}"></p>
+      {{/each}}
+      </div>
+
+  </div>
+  {{/if}}
+    {{/if}}
+</div>

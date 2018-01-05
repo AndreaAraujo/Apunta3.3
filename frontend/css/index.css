@@ -1,0 +1,174 @@
+header{
+	background: url("../img/imgcabecera.jpg");
+	background-size:200px;
+	background-repeat:repeat-x;
+	width: 100%;
+	height:140px;
+	border: 3px solid #000000;
+}
+
+img{
+	height: 135px;
+	width: 135px;
+	margin-left: 20px;
+}
+
+#userbar{
+	margin-top: 18px;
+	font-size: 20px;
+}
+
+
+
+li{
+	list-style:none;
+}
+
+a{
+	color:black;
+}
+
+h1{
+	text-align: center;
+	margin-top: 50px;
+	font-family: "MV Boli";
+	font-size: 50px;
+}
+
+h3{
+	margin-top: 50px;
+	margin-left: 40px;
+}
+
+.form-group{
+	margin-top: 70px;
+}
+
+.menu{
+background-color:  #c4c4c4;
+}
+
+#logoutbutton{
+	margin-left: 50px;
+	font-family: "Cooper Black";
+	font-size: 15px;
+	color: white;
+	background-color: black;
+	border-radius: 15px;
+	padding: 4px  12px  4px  12px;
+	border: 2px solid white;
+}
+.col-md-4{
+	font-size: 15px;
+}
+
+#menuNav{
+	position:absolute;
+	background: url("../img/imgcabecera.jpg");
+	background-size:200px;
+	background-repeat:repeat-x;
+	width: 90%;
+	position:absolute;
+	margin-left: 98px;
+	height:150px;
+	border: 3px solid #000000;
+
+}
+#caja{
+	margin-top: 30px;
+	background-color: #ccc7f9;
+  border-radius: 34px;
+  box-shadow: 3px 3px 10px 0px rgba(50, 50, 50, 50);
+  max-width: 300px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+	font-size: 15px;
+}
+.btn{
+	background:#c4c4c4;
+	margin: 20px 5px;
+}
+
+label {
+  color: black;
+  display: block;
+  margin-bottom: 8px;
+  margin-left: 1em;
+}
+
+#labelNombre, #contenidoNota{
+	font-weight: bold;
+	font-family: "Homer Simpson",cursive;
+	font-size: 30px;
+	margin: 10px;
+}
+
+#reg{
+  font-size: 18px;
+  color: black;
+	margin-left: 18px;
+}
+.formularioCrear{
+	margin: 20px 55px;
+}
+.formularioEditar{
+	margin: 20px 55px;
+}
+
+#titulo{
+  color : #5F595E;
+}
+#textBoxCompartirCon{
+	width: 300px;
+}
+#textBoxContenido{
+	height:100px;
+}
+
+#btnGuardar{
+	color: #ff6e00;
+}
+#btnCompartir{
+	color: green;
+}
+#btnEditar{
+	color: #3aaaea;
+}
+#btnEliminar{
+	color: red;
+}
+
+#btnCrearNota{
+	color: #9500d1;
+}
+
+#btnUser{
+ color: #046818;
+ font-size: 1.5em;
+ margin-left: 8px;
+}
+#main-content {
+	position:relative;
+	top:70px;
+	margin-left: 100px;
+}
+#AutorNota{
+  color: #c4c4c4, blond;
+}
+#labelNombre, textarea{
+	font-weight: bold;
+	font-family: "Homer Simpson",cursive;
+	font-size: 30px;
+	margin: 10px;
+}
+
+#main-footer {
+	background: url("../img/mesafooter.jpg");
+	background-size: cover;
+	color: #c4c4c4, blond;
+	text-align: center;
+	margin-top: 50%;
+	width:100%;
+	height: 60px;
+	font-size: 17px;
+}
