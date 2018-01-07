@@ -70,6 +70,12 @@ class NoteMapper {
 			$stmt->execute(array($note->getIdNota()));
 		}
 
+		public function share(Nota $nota) {
+			$stmt = $this->db->prepare("INSERT INTO notas_compartidas(nomUsu, IdNota) values (?,?)");
+			$stmt->execute(array($nota->getNomUsu(), $nota->getIdNota()));
+			return $this->db->lastInsertId();
+		}
+
 		/*
 		public function findPostShared($nombreUsuario) {
 			$stmt = $this->db->prepare("SELECT * FROM notas_compartidas, nota ,usuario WHERE notas_compartidas.nomUsu =? and  notas_compartidas.IdNota = nota.IdNota and usuario.login = nota.autor ");

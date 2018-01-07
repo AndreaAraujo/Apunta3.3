@@ -19,6 +19,15 @@ class NotesService {
     return $.get(AppConfig.backendServer+'/rest/share/' + IdNota);
   }*/
 
+  shareNote(IdNota, user) {
+    return $.ajax({
+      url: AppConfig.backendServer+'/rest/note/' + IdNota + '/share',
+      method: 'POST',
+      data: JSON.stringify(user),
+      contentType: 'application/json'
+    });
+  }
+
   deleteNote(IdNota) {
     return $.ajax({
       url: AppConfig.backendServer+'/rest/note/' + IdNota,

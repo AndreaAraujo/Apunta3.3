@@ -151,6 +151,29 @@ class NoteRest extends BaseRest {
 
 		header($_SERVER['SERVER_PROTOCOL'].' 204 No Content');
 	}
+
+	public function shareNote($noteId, $user) {
+		$currentUser = parent::authenticateUser();
+		$note = $this->noteMapper->findById($noteId);
+
+		if ($note == NULL) {
+			header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
+			echo("Note with id ".$noteId." not found");
+		}
+
+		try {
+			$this->noteMapper->share($note);
+
+			header($_SERVER['SERVER_PROTOCOL'].' 201 Created');
+
+		}catch(ValidationException $e) {
+			header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
+			header('Content-Type: application/json');
+			echo(json_encode($e->getErrors()));
+		}
+	}
+
+
 /*
 public function getPostShared() {
 	$currentUser = parent::authenticateUser();
@@ -217,6 +240,8 @@ URIDispatcher::getInstance()
 ->map("GET",	"/note", array($noteRest,"getNotes"))
 ->map("GET",	"/note/$1", array($noteRest,"readNote"))
 ->map("POST", "/note", array($noteRest,"createNote"))
+->map("POST", "/note/$1/share", array($noteRest,"shareNote"))
 ->map("PUT",	"/note/$1", array($noteRest,"updateNote"))
 ->map("DELETE", "/note/$1", array($noteRest,"deleteNote"));
+
 ?>

@@ -1,5 +1,5 @@
 <div class="col-md-4" key="{{IdNota}}">
-  {{#if_eq user.currentUser autor}}
+  {{#if user.isLogged}}
   <h2 href="#view-note?id={{IdNota}}">{{nombre}}</h2>
   <p href="#view-note?id={{IdNota}}">{{contenido}}</p>
   <p>{{autor}} ({{user.currentUser}})</p>
@@ -8,5 +8,5 @@
       <button class="edit-button" item="{{IdNota}}"><span class="glyphicon glyphicon-pencil" id="btnEditar"></span>{{i18n 'Edit'}}</button>
       <button class="share-button" item="{{IdNota}}"><span class="glyphicon glyphicon-user" id="btnUser"></span>{{i18n 'Share note'}}</button>
   </p>
-  {{/if_eq}}
+  {{/if}}
 </div>
