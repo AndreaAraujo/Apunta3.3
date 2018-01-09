@@ -92,7 +92,7 @@ class NoteRest extends BaseRest {
 			"IdNota" => $note->getIdNota(),
 			"nombre" => $note->getNombre(),
 			"contenido" => $note->getContenido(),
-			"autor" => $note->getAutor()->getLogin()
+			"autor" => $note->getAutor()
 
 		);
 
