@@ -36,13 +36,13 @@ class NoteSharedComponent extends Fronty.ModelComponent {
   }
 
   updateNotes() {
-	  this.notesService.findNoteShared().then((data) => {
+	 /* this.notesService.findNoteShared().then((data) => {
 		this.notesModel.setNotes(
         // create a Fronty.Model for each item retrieved from the backend
         data.map(
           (item) => new NoteModel(item.IdNota, item.nombre, item.contenido, item.autor)
       ));
-    });
+    });*/
   }
 
 

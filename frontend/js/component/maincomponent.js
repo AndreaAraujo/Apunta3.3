@@ -24,6 +24,10 @@ class MainComponent extends Fronty.RouterComponent {
         component: new NoteAddComponent(notesModel, userModel, this),
         title: 'Add Note'
       },
+      'shared-note': {
+        component: new NoteSharedComponent(notesModel, userModel, this),
+        title: 'Share Note'
+      },
 
       /*
       'share-post': {

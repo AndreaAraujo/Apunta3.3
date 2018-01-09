@@ -37,6 +37,10 @@ Promise.all([
      Handlebars.templates.noteedit = Handlebars.compile(source)),
    loadTextFile('templates/components/note-view.hbs').then((source) =>
      Handlebars.templates.noteview = Handlebars.compile(source)),
+  loadTextFile('templates/components/note-share.hbs').then((source) =>
+       Handlebars.templates.noteshare = Handlebars.compile(source)),
+  loadTextFile('templates/components/noteshared-table.hbs').then((source) =>
+            Handlebars.templates.notesharedtable = Handlebars.compile(source)),
    loadTextFile('templates/components/note-row.hbs').then((source) =>
      Handlebars.templates.noterow = Handlebars.compile(source))/*,
    loadTextFile('templates/components/postshared-table.hbs').then((source) =>
