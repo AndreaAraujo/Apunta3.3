@@ -7,7 +7,7 @@ class NotesService {
     return $.get(AppConfig.backendServer+'/rest/note');
   }
 
-  findnNote(IdNota) {
+  findNote(IdNota) {
     return $.get(AppConfig.backendServer+'/rest/note/' + IdNota);
   }
 
