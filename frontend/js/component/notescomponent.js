@@ -61,6 +61,11 @@ class NoteRowComponent extends Fronty.ModelComponent {
       var IdNota = event.target.getAttribute('item');
       this.router.goToPage('edit-note?IdNota=' + IdNota);
     });
+
+    this.addEventListener('click', '.share-button', (event) => {
+      var IdNota = event.target.getAttribute('item');
+      this.router.goToPage('view-note?IdNota=' + IdNota);
+    });
   }
 
 }

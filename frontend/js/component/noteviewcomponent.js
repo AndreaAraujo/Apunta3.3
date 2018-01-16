@@ -11,7 +11,7 @@ class NoteViewComponent extends Fronty.ModelComponent {
 
     this.addEventListener('click', '#savesharebutton', () => {
       var selectedId = this.router.getRouteQueryParam('IdNota');
-      this.notesService.createShare(selectedId, {
+      this.notesService.shareNote(selectedId, {
           content: $('#sharecontent').val()
         })
         .then(() => {

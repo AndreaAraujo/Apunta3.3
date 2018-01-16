@@ -32,7 +32,7 @@ class NoteShareComponent extends Fronty.ModelComponent {
   onStart() {
     var selectedId = this.router.getRouteQueryParam('IdNota');
     if (selectedId != null) {
-      this.notesService.findNotes(selectedId)
+      this.notesService.findNote(selectedId)
         .then((note) => {
           this.notesModel.setSelectedNote(note);
         });
