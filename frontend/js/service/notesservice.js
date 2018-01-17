@@ -11,9 +11,9 @@ class NotesService {
     return $.get(AppConfig.backendServer+'/rest/note/' + IdNota);
   }
 
-/*  findPostShared() {
-	return $.get(AppConfig.backendServer+'/rest/shared');
-}*/
+ findNoteShared() {
+	 return $.get(AppConfig.backendServer+'/rest/shared');
+ }
 
 /*  findPostS(IdNota) {alert(IdNota+ " ");
     return $.get(AppConfig.backendServer+'/rest/share/' + IdNota);
@@ -52,14 +52,5 @@ class NotesService {
       contentType: 'application/json'
     });
   }
-/*
-  sharePost(IdNota, user) {
-    return $.ajax({
-      url: AppConfig.backendServer+'/rest/post/' + IdNota + '/share',
-      method: 'POST',
-      data: JSON.stringify(share),
-      contentType: 'application/json'
-    });
-  }*/
 
 }

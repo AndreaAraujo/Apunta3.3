@@ -152,17 +152,18 @@ class NoteRest extends BaseRest {
 		header($_SERVER['SERVER_PROTOCOL'].' 204 No Content');
 	}
 
-	public function shareNote($noteId, $user) {
+
+	public function shareNote($IdNota, $user) {
 		$currentUser = parent::authenticateUser();
-		$note = $this->noteMapper->findById($noteId);
+		$note = $this->noteMapper->findById($IdNota);
 
 		if ($note == NULL) {
 			header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
-			echo("Note with id ".$noteId." not found");
+			echo("Note with id ".$IdNota." not found");
 		}
 
 		try {
-			$this->noteMapper->share($note);
+			$this->noteMapper->share($note, $user);
 
 			header($_SERVER['SERVER_PROTOCOL'].' 201 Created');
 
@@ -174,67 +175,36 @@ class NoteRest extends BaseRest {
 	}
 
 
-/*
-public function getPostShared() {
+public function getNoteShared() {
 	$currentUser = parent::authenticateUser();
-	$posts = $this->postMapper->findPostShared($currentUser->getLogin());
+	$notes = $this->noteMapper->findNoteShared($currentUser->getLogin());
 
 	// json_encode Post objects.
 	// since Post objects have private fields, the PHP json_encode will not
 	// encode them, so we will create an intermediate array using getters and
 	// encode it finally
-	$posts_array = array();
-	foreach($posts as $post) {
-		array_push($posts_array, array(
-			"IdNota" => $post->getIdNota(),
-			"nombre" => $post->getNombre(),
-			"contenido" => $post->getContenido(),
-			"autor" => $post->getAutor()->getLogin()
+	$notes_array = array();
+	foreach($notes as $note) {
+		array_push($notes_array, array(
+			"IdNota" => $note->getIdNota(),
+			"nombre" => $note->getNombre(),
+			"contenido" => $note->getContenido(),
+			"autor" => $note->getAutor()->getLogin()
 		));
 	}
 
 	header($_SERVER['SERVER_PROTOCOL'].' 200 Ok');
 	header('Content-Type: application/json');
-	echo(json_encode($posts_array));
+	echo(json_encode($notes_array));
 }
 
-public function sharePost($IdNota, $user) {
-	$currentUser = parent::authenticateUser();
-	$post = $this->postMapper->findById($IdNota);
 
-	if ($post == NULL) {
-		header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
-		echo("Note with id ".$IdNota." not found");
-	}
-
-	try {
-		$this->postMapper->share($post, $user);
-
-		header($_SERVER['SERVER_PROTOCOL'].' 201 Created');
-
-	}catch(ValidationException $e) {
-		header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
-		header('Content-Type: application/json');
-		echo(json_encode($e->getErrors()));
-	}
-}
-
-*/
 
 }
 
 // URI-MAPPING for this Rest endpoint
 $noteRest = new NoteRest();
-/*
-URIDispatcher::getInstance()
-->map("GET",	"/post", array($postRest,"getPosts"))
-->map("GET",	"/post/$1", array($postRest,"readPost"))
-->map("POST", "/post", array($postRest,"createPost"))
-->map("POST",  "/post/$1/share", array($postRest,"sharePost"))
-->map("PUT",	"/post/$1", array($postRest,"updatePost"))
-->map("DELETE", "/post/$1", array($postRest,"deletePost"))
-->map("GET",	"/shared", array($postRest,"getPostShared"));
-*/
+
 
 URIDispatcher::getInstance()
 ->map("GET",	"/note", array($noteRest,"getNotes"))
@@ -242,6 +212,7 @@ URIDispatcher::getInstance()
 ->map("POST", "/note", array($noteRest,"createNote"))
 ->map("POST", "/note/$1/share", array($noteRest,"shareNote"))
 ->map("PUT",	"/note/$1", array($noteRest,"updateNote"))
-->map("DELETE", "/note/$1", array($noteRest,"deleteNote"));
+->map("DELETE", "/note/$1", array($noteRest,"deleteNote"))
+->map("DELETE", "/shared", array($noteRest,"getNoteShared"));
 
 ?>

@@ -1,6 +1,6 @@
 class NoteShareComponent extends Fronty.ModelComponent {
   constructor(notesModel, userModel, router) {
-    super(Handlebars.templates.noteshare, notesModel);
+    super(Handlebars.templates.noteview, notesModel);
     this.notesModel = notesModel; // posts
     this.userModel = userModel; // global
     this.addModel('user', userModel);

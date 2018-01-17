@@ -42,11 +42,7 @@ Promise.all([
   loadTextFile('templates/components/noteshared-table.hbs').then((source) =>
             Handlebars.templates.notesharedtable = Handlebars.compile(source)),
    loadTextFile('templates/components/note-row.hbs').then((source) =>
-     Handlebars.templates.noterow = Handlebars.compile(source))/*,
-   loadTextFile('templates/components/postshared-table.hbs').then((source) =>
-     Handlebars.templates.postsharedtable = Handlebars.compile(source)),
-   loadTextFile('templates/components/post-share.hbs').then((source) =>
-     Handlebars.templates.postshare = Handlebars.compile(source))*/
+     Handlebars.templates.noterow = Handlebars.compile(source))
   ])
   .then(() => {
     $(() => {
