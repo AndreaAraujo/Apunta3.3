@@ -1,5 +1,8 @@
 <div class="col-md-4" key="{{IdNota}}">
+<br><br><br>
   {{#if user.isLogged}}
+
+
   <h2 href="#view-note?id={{IdNota}}">{{nombre}}</h2>
   <p href="#view-note?id={{IdNota}}">{{contenido}}</p>
   <p>{{autor}} ({{user.currentUser}})</p>
@@ -9,4 +12,5 @@
       <button class="share-button" item="{{IdNota}}"><span class="glyphicon glyphicon-user" id="btnUser"></span>{{i18n 'Share note'}}</button>
   </p>
   {{/if}}
+
 </div>

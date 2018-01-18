@@ -76,8 +76,8 @@ class NoteMapper {
 			return $this->db->lastInsertId();
 		}
 
-		/*
-		public function findPostShared($nombreUsuario) {
+
+		public function findNoteShared($nombreUsuario) {
 			$stmt = $this->db->prepare("SELECT * FROM notas_compartidas, nota ,usuario WHERE notas_compartidas.nomUsu =? and  notas_compartidas.IdNota = nota.IdNota and usuario.login = nota.autor ");
 			$stmt->execute(array($nombreUsuario));
 
@@ -87,12 +87,12 @@ class NoteMapper {
 
 			foreach ($posts_db as $post) {
 				$autor = new User($post["login"]);
-				array_push($posts, new Post($post["IdNota"], $post["nombre"], $post["contenido"], $autor));
+				array_push($posts, new Note($post["IdNota"], $post["nombre"], $post["contenido"], $autor));
 			}
 
 			return $posts;
 		}
-
+/*
 		public function share(PostShared $post) {
 	    $stmt = $this->db->prepare("INSERT INTO notas_compartidas(nomUsu, IdNota) values (?,?)");
 	    $stmt->execute(array($post->getNomUsu(), $post->getIdNota()));

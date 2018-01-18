@@ -154,10 +154,13 @@ class NoteRest extends BaseRest {
 
 
 	public function shareNote($IdNota, $user) {
+die("sdfsadfaesfaerfvgaewfaewfaef");
+
 		$currentUser = parent::authenticateUser();
 		$note = $this->noteMapper->findById($IdNota);
 
 		if ($note == NULL) {
+			die(1);
 			header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
 			echo("Note with id ".$IdNota." not found");
 		}
@@ -166,7 +169,7 @@ class NoteRest extends BaseRest {
 			$this->noteMapper->share($note, $user);
 
 			header($_SERVER['SERVER_PROTOCOL'].' 201 Created');
-
+die(2);
 		}catch(ValidationException $e) {
 			header($_SERVER['SERVER_PROTOCOL'].' 400 Bad request');
 			header('Content-Type: application/json');
@@ -176,6 +179,7 @@ class NoteRest extends BaseRest {
 
 
 public function getNoteShared() {
+
 	$currentUser = parent::authenticateUser();
 	$notes = $this->noteMapper->findNoteShared($currentUser->getLogin());
 
@@ -213,6 +217,6 @@ URIDispatcher::getInstance()
 ->map("POST", "/note/$1/share", array($noteRest,"shareNote"))
 ->map("PUT",	"/note/$1", array($noteRest,"updateNote"))
 ->map("DELETE", "/note/$1", array($noteRest,"deleteNote"))
-->map("DELETE", "/shared", array($noteRest,"getNoteShared"));
+->map("GET", "/shared", array($noteRest,"getNoteShared"));
 
 ?>
