@@ -213,7 +213,7 @@ URIDispatcher::getInstance()
 ->map("GET",	"/note", array($noteRest,"getNotes"))
 ->map("GET",	"/note/$1", array($noteRest,"readNote"))
 ->map("POST", "/note", array($noteRest,"createNote"))
-->map("POST", "/note/$1/share", array($noteRest,"shareNote"))
+->map("POST", "/note/$1/shareNote", array($noteRest,"shareNote"))
 ->map("PUT",	"/note/$1", array($noteRest,"updateNote"))
 ->map("DELETE", "/note/$1", array($noteRest,"deleteNote"))
 ->map("GET", "/shared", array($noteRest,"getNoteShared"));

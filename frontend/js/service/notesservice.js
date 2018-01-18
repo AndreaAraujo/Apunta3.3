@@ -21,7 +21,7 @@ class NotesService {
 
   shareNote(IdNota, user) {
     return $.ajax({
-      url: AppConfig.backendServer+'/rest/note/' + IdNota + '/share',
+      url: AppConfig.backendServer+'/rest/note/' + IdNota + '/shareNote',
       method: 'POST',
       data: JSON.stringify(user),
       contentType: 'application/json'
