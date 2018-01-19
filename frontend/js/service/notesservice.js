@@ -12,7 +12,7 @@ class NotesService {
   }
 
  findNoteShared() {
-	 return $.get(AppConfig.backendServer+'/rest/shared');
+	 return $.get(AppConfig.backendServer+'/rest/sharedNote');
  }
 
 /*  findPostS(IdNota) {alert(IdNota+ " ");
@@ -20,6 +20,7 @@ class NotesService {
   }*/
 
   shareNote(IdNota, user) {
+  
     return $.ajax({
       url: AppConfig.backendServer+'/rest/note/' + IdNota + '/shareNote',
       method: 'POST',

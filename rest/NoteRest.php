@@ -24,6 +24,8 @@ class NoteRest extends BaseRest {
 
 
 	public function getNotes() {
+		//$currentUser = parent::authenticateUser();
+		//$notes = $this->noteMapper->findNotes($currentUser->getLogin());
 		$notes = $this->noteMapper->findAll();
 
 		// json_encode Post objects.
@@ -153,7 +155,7 @@ class NoteRest extends BaseRest {
 	}
 
 
-	public function shareNote($IdNota, $user) {
+public function shareNote($IdNota, $user) {
 
 		$currentUser = parent::authenticateUser();
 		$note = $this->noteMapper->findById($IdNota);
@@ -165,7 +167,7 @@ class NoteRest extends BaseRest {
 		}
 
 		try {
-			$this->noteMapper->share($note, $user);
+		$this->noteMapper->share($note ,$user);
 
 			header($_SERVER['SERVER_PROTOCOL'].' 201 Created');
 
@@ -216,6 +218,6 @@ URIDispatcher::getInstance()
 ->map("POST", "/note/$1/shareNote", array($noteRest,"shareNote"))
 ->map("PUT",	"/note/$1", array($noteRest,"updateNote"))
 ->map("DELETE", "/note/$1", array($noteRest,"deleteNote"))
-->map("GET", "/shared", array($noteRest,"getNoteShared"));
+->map("GET", "/sharedNote", array($noteRest,"getNoteShared"));
 
 ?>

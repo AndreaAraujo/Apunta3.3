@@ -31,7 +31,23 @@ class NoteMapper {
 
 		return $notes;
 	}
+	/*
 
+	public function findNotes($currentUser) {
+		$stmt = $this->db->query("SELECT * FROM nota WHERE autor= ?");
+		$stmt->execute(array($currentUser));
+		$notes_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		$notes = array();
+
+		foreach ($notes_db as $note) {
+			$author = new User($note["login"]);
+			array_push($notes, new Note($note["IdNota"], $note["nombre"], $note["contenido"], $author));
+		}
+
+		return $notes;
+	}
+*/
 
 	public function findById($IdNota){
 		$stmt = $this->db->prepare("SELECT * FROM nota WHERE IdNota=?");
@@ -70,10 +86,10 @@ class NoteMapper {
 			$stmt->execute(array($note->getIdNota()));
 		}
 
-		public function share(Nota $nota) {
-			$stmt = $this->db->prepare("INSERT INTO notas_compartidas(nomUsu, IdNota) values (?,?)");
-			$stmt->execute(array($nota->getNomUsu(), $nota->getIdNota()));
-			return $this->db->lastInsertId();
+		public function share(Note $note, $currentUser) {
+			$stmt = $this->db->prepare("INSERT INTO notas_compartidas(nomUsu, idNota) values (?,?)");
+			$stmt->execute(array($currentUser, $note->getIdNota()));
+			//return $this->db->lastInsertId();
 		}
 
 
